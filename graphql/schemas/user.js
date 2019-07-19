@@ -7,11 +7,27 @@ const userType = `
     }
 `
 
-const userQuery = `
+const userQueries = `
     users(id: Int): [User]!
 `
 
+const userInputType = `
+    input UserInput {
+        name: String
+        age: Int
+        gender: String
+    }
+`
+
+const userMutations = `
+    createUser(input: UserInput): User
+`
+
 module.exports = {
-    type: userType,
-    query: userQuery
+    types: `
+        ${userType}
+        ${userInputType}
+    `,
+    query: userQueries,
+    mutations: userMutations
 }
